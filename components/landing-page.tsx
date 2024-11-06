@@ -29,11 +29,11 @@ export function LandingPageComponent() {
   return (
     <div className="flex flex-col min-h-screen bg-stone-50">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md w-full">
+        <div className="container max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
           <Link href="/" className="flex items-center space-x-2">
             <Image src="/logo.png?height=40&width=40" alt="Local Farmer Community Logo" width={40} height={40} className="rounded-full" />
-            <span className="text-lg md:text-xl font-semibold text-green-800">Local Farmer Community</span>
+            <span className="text-lg md:text-xl font-semibold text-green-800">Local Farmer Community 2024</span>
           </Link>
 
           {/* Desktop and Mobile Navigation */}
@@ -87,7 +87,7 @@ export function LandingPageComponent() {
             className="absolute inset-0 z-0"
           />
           <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
-          <div className="relative z-20 max-w-4xl mx-auto px-4">
+          <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Empowering Local Farmers with Data, Community, and Knowledge</h1>
             <p className="text-base sm:text-lg md:text-xl mb-8">Join the Local Farmer Community to access vital resources, connect with fellow farmers, and share sustainable practices for a thriving agricultural future.</p>
             <div className="flex justify-center space-x-4">
@@ -103,7 +103,7 @@ export function LandingPageComponent() {
 
         {/* Key Benefits Section */}
         <section className="py-8 md:py-16 bg-stone-100">
-          <div className="container mx-auto px-4">
+          <div className="container max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-green-800">Key Benefits</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
               {[ 
@@ -124,7 +124,7 @@ export function LandingPageComponent() {
 
         {/* Community Testimonials Section */}
         <section className="py-8 md:py-16">
-          <div className="container mx-auto px-4">
+          <div className="container max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-green-800">Community Testimonials</h2>
             <Carousel className="max-w-4xl mx-auto">
               <CarouselContent>
@@ -151,7 +151,7 @@ export function LandingPageComponent() {
 
         {/* Feature Highlights Section */}
         <section className="py-8 md:py-16 bg-stone-100">
-          <div className="container mx-auto px-4">
+          <div className="container max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-green-800">Feature Highlights</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
               {[ 
@@ -172,7 +172,7 @@ export function LandingPageComponent() {
 
         {/* Access Anytime, Anywhere Section */}
         <section className="py-8 md:py-16">
-          <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
+          <div className="container max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center">
             <div className="w-full md:w-1/2 mb-8 md:mb-0 flex justify-center md:justify-start">
               <Image
                 src="/app_farm.jpg?height=400&width=300"
@@ -195,7 +195,7 @@ export function LandingPageComponent() {
 
       {/* Footer */}
       <footer className="bg-green-900 text-white py-12">
-        <div className="container mx-auto px-4">
+        <div className="container max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
             <div>
               <h3 className="text-lg md:text-xl font-semibold mb-4">Quick Links</h3>
