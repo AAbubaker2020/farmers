@@ -1,13 +1,20 @@
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { Facebook, Twitter, Youtube } from 'lucide-react';
+import { Facebook, Twitter, Youtube, Menu } from 'lucide-react';
 
 export function LandingPageComponent() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-stone-50">
       {/* Header */}
@@ -17,6 +24,8 @@ export function LandingPageComponent() {
             <Image src="/logo.png?height=40&width=40" alt="Local Farmer Community Logo" width={40} height={40} className="rounded-full" />
             <span className="text-lg md:text-xl font-semibold text-green-800">Local Farmer Community 2024</span>
           </Link>
+
+          {/* Desktop Navigation */}
           <nav className="hidden md:block">
             <ul className="flex space-x-4 md:space-x-6">
               <li><Link href="/" className="text-green-800 hover:text-green-600">Home</Link></li>
@@ -30,7 +39,29 @@ export function LandingPageComponent() {
               </li>
             </ul>
           </nav>
+
+          {/* Mobile Menu Button */}
+          <button className="md:hidden text-green-800" onClick={toggleMenu} aria-label="Toggle menu">
+            <Menu className="h-6 w-6" />
+          </button>
         </div>
+
+        {/* Mobile Dropdown Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden bg-white shadow-lg">
+            <ul className="flex flex-col items-start px-4 py-4 space-y-4">
+              <li><Link href="/" className="text-green-800 hover:text-green-600" onClick={toggleMenu}>Home</Link></li>
+              <li><Link href="/" className="text-green-800 hover:text-green-600" onClick={toggleMenu}>About</Link></li>
+              <li><Link href="/" className="text-green-800 hover:text-green-600" onClick={toggleMenu}>Mission & Vision</Link></li>
+              <li><Link href="/" className="text-green-800 hover:text-green-600" onClick={toggleMenu}>Resources</Link></li>
+              <li>
+                <Button asChild variant="default" className="bg-green-600 hover:bg-green-700 text-white w-full text-center">
+                  <Link href="/" onClick={toggleMenu}>Sign Up</Link>
+                </Button>
+              </li>
+            </ul>
+          </div>
+        )}
       </header>
 
       {/* Main Content */}
@@ -64,7 +95,6 @@ export function LandingPageComponent() {
           <div className="container mx-auto px-4">
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-green-800">Key Benefits</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
-              {/* Benefit Cards */}
               {[
                 {
                   title: "Access Data & Market Trends",
@@ -147,28 +177,27 @@ export function LandingPageComponent() {
           </div>
         </section>
 
-       {/* Mobile Access Feature */}
-      <section className="py-8 md:py-16">
-      <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
-        <div className="w-full md:w-1/2 mb-8 md:mb-0 flex justify-center md:justify-start">
-          <Image
-            src="/app_farm.jpg?height=400&width=300"
-            alt="Mobile app preview"
-            width={250}
-            height={333}
-            className="rounded-lg shadow-lg w-[200px] sm:w-[250px] md:w-[300px] h-auto"
-          />
-        </div>
-        <div className="w-full md:w-1/2 md:pl-8 text-center md:text-left">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4 text-green-800">Access Anytime, Anywhere</h2>
-          <p className="text-lg text-gray-700 mb-6">Stay connected to your farming community and access vital resources on-the-go with our mobile-friendly platform.</p>
-          <Button asChild size="lg" className="bg-green-600 hover:bg-green-700 text-white">
-            <Link href="/">Learn More</Link>
-          </Button>
-        </div>
-      </div>
-    </section>
-
+        {/* Mobile Access Feature */}
+        <section className="py-8 md:py-16">
+          <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div className="w-full md:w-1/2 mb-8 md:mb-0 flex justify-center md:justify-start">
+              <Image
+                src="/app_farm.jpg?height=400&width=300"
+                alt="Mobile app preview"
+                width={250}
+                height={333}
+                className="rounded-lg shadow-lg w-[200px] sm:w-[250px] md:w-[300px] h-auto"
+              />
+            </div>
+            <div className="w-full md:w-1/2 md:pl-8 text-center md:text-left">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-green-800">Access Anytime, Anywhere</h2>
+              <p className="text-lg text-gray-700 mb-6">Stay connected to your farming community and access vital resources on-the-go with our mobile-friendly platform.</p>
+              <Button asChild size="lg" className="bg-green-600 hover:bg-green-700 text-white">
+                <Link href="/">Learn More</Link>
+              </Button>
+            </div>
+          </div>
+        </section>
       </main>
 
       {/* Footer */}
