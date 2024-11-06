@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: "Local Farmer Community",
   description: "Empowering local farmers with data, community, and knowledge.",
   icons: {
-    icon: "/logo.png?v=3", // Update query string to force reload
+    icon: "/logo.png?v=3",
   },
 };
 
@@ -27,8 +27,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+    <html lang="en" className="overflow-x-hidden">
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}>
         {children}
       </body>
     </html>

@@ -33,7 +33,7 @@ export function LandingPageComponent() {
         <div className="container max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
           <Link href="/" className="flex items-center space-x-2">
             <Image src="/logo.png?height=40&width=40" alt="Local Farmer Community Logo" width={40} height={40} className="rounded-full" />
-            <span className="text-lg md:text-xl font-semibold text-green-800">Local Farmer Community 2024</span>
+            <span className="text-lg md:text-xl font-semibold text-green-800">Local Farmer Community</span>
           </Link>
 
           {/* Desktop and Mobile Navigation */}
