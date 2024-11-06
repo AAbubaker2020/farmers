@@ -1,11 +1,11 @@
-'use client'
+'use client';
 
-import Image from 'next/image'
-import Link from 'next/link'
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
-import { Facebook, Twitter, Youtube } from 'lucide-react'
+import Image from 'next/image';
+import Link from 'next/link';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Facebook, Twitter, Youtube } from 'lucide-react';
 
 export function LandingPageComponent() {
   return (
@@ -15,10 +15,10 @@ export function LandingPageComponent() {
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <Link href="/" className="flex items-center space-x-2">
             <Image src="/logo.png?height=40&width=40" alt="Local Farmer Community Logo" width={40} height={40} className="rounded-full" />
-            <span className="text-xl font-semibold text-green-800">Local Farmer Community 2024</span>
+            <span className="text-lg md:text-xl font-semibold text-green-800">Local Farmer Community 2024</span>
           </Link>
-          <nav>
-            <ul className="flex space-x-6">
+          <nav className="hidden md:block">
+            <ul className="flex space-x-4 md:space-x-6">
               <li><Link href="/" className="text-green-800 hover:text-green-600">Home</Link></li>
               <li><Link href="/" className="text-green-800 hover:text-green-600">About</Link></li>
               <li><Link href="/" className="text-green-800 hover:text-green-600">Mission & Vision</Link></li>
@@ -36,7 +36,7 @@ export function LandingPageComponent() {
       {/* Main Content */}
       <main className="flex-grow mt-16">
         {/* Hero Section */}
-        <section className="relative h-[600px] flex items-center justify-center text-center text-white">
+        <section className="relative h-[400px] md:h-[600px] flex items-center justify-center text-center text-white">
           <Image
             src="/trucks_hero_page.jpeg?height=600&width=1600"
             alt="Farmers working in a field"
@@ -46,8 +46,8 @@ export function LandingPageComponent() {
           />
           <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
           <div className="relative z-20 max-w-4xl mx-auto px-4">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Empowering Local Farmers with Data, Community, and Knowledge</h1>
-            <p className="text-xl mb-8">Join the Local Farmer Community to access vital resources, connect with fellow farmers, and share sustainable practices for a thriving agricultural future.</p>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Empowering Local Farmers with Data, Community, and Knowledge</h1>
+            <p className="text-base sm:text-lg md:text-xl mb-8">Join the Local Farmer Community to access vital resources, connect with fellow farmers, and share sustainable practices for a thriving agricultural future.</p>
             <div className="flex justify-center space-x-4">
               <Button asChild size="lg" className="bg-green-600 hover:bg-green-700 text-white">
                 <Link href="/">Join the Community</Link>
@@ -60,10 +60,11 @@ export function LandingPageComponent() {
         </section>
 
         {/* Key Benefits Section */}
-        <section className="py-16 bg-stone-100">
+        <section className="py-8 md:py-16 bg-stone-100">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12 text-green-800">Key Benefits</h2>
-            <div className="grid md:grid-cols-3 gap-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-green-800">Key Benefits</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+              {/* Benefit Cards */}
               {[
                 {
                   title: "Access Data & Market Trends",
@@ -79,8 +80,8 @@ export function LandingPageComponent() {
                 }
               ].map((benefit, index) => (
                 <Card key={index} className="bg-white">
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-2 text-green-700">{benefit.title}</h3>
+                  <CardContent className="p-4 md:p-6">
+                    <h3 className="text-lg md:text-xl font-semibold mb-2 text-green-700">{benefit.title}</h3>
                     <p className="text-gray-600">{benefit.description}</p>
                   </CardContent>
                 </Card>
@@ -90,9 +91,9 @@ export function LandingPageComponent() {
         </section>
 
         {/* Community Testimonials */}
-        <section className="py-16">
+        <section className="py-8 md:py-16">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12 text-green-800">Community Testimonials</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-green-800">Community Testimonials</h2>
             <Carousel className="max-w-4xl mx-auto">
               <CarouselContent>
                 {[
@@ -125,20 +126,19 @@ export function LandingPageComponent() {
           </div>
         </section>
 
-
         {/* Feature Highlights */}
-        <section className="py-16 bg-stone-100">
+        <section className="py-8 md:py-16 bg-stone-100">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12 text-green-800">Feature Highlights</h2>
-            <div className="grid md:grid-cols-3 gap-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-green-800">Feature Highlights</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
               {[
                 { title: "Forums", description: "Engage in discussions with fellow farmers" },
                 { title: "Data Dashboards", description: "Access real-time agricultural data and insights" },
                 { title: "Learning Resources", description: "Expand your knowledge with curated educational content" }
               ].map((feature, index) => (
                 <Card key={index} className="bg-white">
-                  <CardContent className="p-6 text-center">
-                    <h3 className="text-xl font-semibold mb-2 text-green-700">{feature.title}</h3>
+                  <CardContent className="p-4 md:p-6 text-center">
+                    <h3 className="text-lg md:text-xl font-semibold mb-2 text-green-700">{feature.title}</h3>
                     <p className="text-gray-600">{feature.description}</p>
                   </CardContent>
                 </Card>
@@ -147,35 +147,36 @@ export function LandingPageComponent() {
           </div>
         </section>
 
-        {/* Mobile Access Feature */}
-        <section className="py-16">
-          <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
-            <div className="md:w-1/2 mb-8 md:mb-0">
-              <Image
-                src="/app_farm.jpg?height=400&width=300"
-                alt="Mobile app preview"
-                width={300}
-                height={400}
-                className="rounded-lg shadow-lg"
-              />
-            </div>
-            <div className="md:w-1/2 md:pl-12">
-              <h2 className="text-3xl font-bold mb-4 text-green-800">Access Anytime, Anywhere</h2>
-              <p className="text-lg text-gray-700 mb-6">Stay connected to your farming community and access vital resources on-the-go with our mobile-friendly platform.</p>
-              <Button asChild size="lg" className="bg-green-600 hover:bg-green-700 text-white">
-                <Link href="/">Learn More</Link>
-              </Button>
-            </div>
-          </div>
-        </section>
+       {/* Mobile Access Feature */}
+      <section className="py-8 md:py-16">
+      <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
+        <div className="w-full md:w-1/2 mb-8 md:mb-0 flex justify-center md:justify-start">
+          <Image
+            src="/app_farm.jpg?height=400&width=300"
+            alt="Mobile app preview"
+            width={250}
+            height={333}
+            className="rounded-lg shadow-lg w-[200px] sm:w-[250px] md:w-[300px] h-auto"
+          />
+        </div>
+        <div className="w-full md:w-1/2 md:pl-8 text-center md:text-left">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 text-green-800">Access Anytime, Anywhere</h2>
+          <p className="text-lg text-gray-700 mb-6">Stay connected to your farming community and access vital resources on-the-go with our mobile-friendly platform.</p>
+          <Button asChild size="lg" className="bg-green-600 hover:bg-green-700 text-white">
+            <Link href="/">Learn More</Link>
+          </Button>
+        </div>
+      </div>
+    </section>
+
       </main>
 
       {/* Footer */}
       <footer className="bg-green-900 text-white py-12">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
             <div>
-              <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
+              <h3 className="text-lg md:text-xl font-semibold mb-4">Quick Links</h3>
               <ul className="space-y-2">
                 <li><Link href="/" className="hover:underline">About Us</Link></li>
                 <li><Link href="/" className="hover:underline">Mission & Vision</Link></li>
@@ -184,15 +185,15 @@ export function LandingPageComponent() {
               </ul>
             </div>
             <div>
-              <h3 className="text-xl font-semibold mb-4">Legal</h3>
+              <h3 className="text-lg md:text-xl font-semibold mb-4">Legal</h3>
               <ul className="space-y-2">
                 <li><Link href="/" className="hover:underline">Terms of Service</Link></li>
                 <li><Link href="/" className="hover:underline">Privacy Policy</Link></li>
               </ul>
             </div>
             <div>
-              <h3 className="text-xl font-semibold mb-4">Connect With Us</h3>
-              <div className="flex space-x-4">
+              <h3 className="text-lg md:text-xl font-semibold mb-4">Connect With Us</h3>
+              <div className="flex justify-center md:justify-start space-x-4">
                 <Link href="/" aria-label="Twitter"><Twitter className="h-6 w-6" /></Link>
                 <Link href="/" aria-label="Facebook"><Facebook className="h-6 w-6" /></Link>
                 <Link href="/" aria-label="YouTube"><Youtube className="h-6 w-6" /></Link>
@@ -205,5 +206,5 @@ export function LandingPageComponent() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
