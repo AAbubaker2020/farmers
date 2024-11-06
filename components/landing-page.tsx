@@ -20,12 +20,12 @@ export function LandingPageComponent() {
           <nav>
             <ul className="flex space-x-6">
               <li><Link href="/" className="text-green-800 hover:text-green-600">Home</Link></li>
-              <li><Link href="/about" className="text-green-800 hover:text-green-600">About</Link></li>
-              <li><Link href="/mission" className="text-green-800 hover:text-green-600">Mission & Vision</Link></li>
-              <li><Link href="/resources" className="text-green-800 hover:text-green-600">Resources</Link></li>
+              <li><Link href="/" className="text-green-800 hover:text-green-600">About</Link></li>
+              <li><Link href="/" className="text-green-800 hover:text-green-600">Mission & Vision</Link></li>
+              <li><Link href="/" className="text-green-800 hover:text-green-600">Resources</Link></li>
               <li>
                 <Button asChild variant="default" className="bg-green-600 hover:bg-green-700 text-white">
-                  <Link href="/signup">Sign Up</Link>
+                  <Link href="/">Sign Up</Link>
                 </Button>
               </li>
             </ul>
@@ -50,10 +50,10 @@ export function LandingPageComponent() {
             <p className="text-xl mb-8">Join the Local Farmer Community to access vital resources, connect with fellow farmers, and share sustainable practices for a thriving agricultural future.</p>
             <div className="flex justify-center space-x-4">
               <Button asChild size="lg" className="bg-green-600 hover:bg-green-700 text-white">
-                <Link href="/signup">Join the Community</Link>
+                <Link href="/">Join the Community</Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="bg-white text-green-800 hover:bg-green-100">
-                <Link href="/resources">Explore Resources</Link>
+                <Link href="/">Explore Resources</Link>
               </Button>
             </div>
           </div>
@@ -112,7 +112,7 @@ export function LandingPageComponent() {
                   <CarouselItem key={index}>
                     <Card>
                       <CardContent className="p-6 text-center">
-                        <p className="text-lg mb-4 text-gray-700">"{testimonial.quote}"</p>
+                        <p className="text-lg mb-4 text-gray-700">&quot;{testimonial.quote}&quot;</p>
                         <p className="font-semibold text-green-700">{testimonial.author}</p>
                       </CardContent>
                     </Card>
@@ -124,6 +124,7 @@ export function LandingPageComponent() {
             </Carousel>
           </div>
         </section>
+
 
         {/* Feature Highlights */}
         <section className="py-16 bg-stone-100">
@@ -162,7 +163,7 @@ export function LandingPageComponent() {
               <h2 className="text-3xl font-bold mb-4 text-green-800">Access Anytime, Anywhere</h2>
               <p className="text-lg text-gray-700 mb-6">Stay connected to your farming community and access vital resources on-the-go with our mobile-friendly platform.</p>
               <Button asChild size="lg" className="bg-green-600 hover:bg-green-700 text-white">
-                <Link href="/mobile">Learn More</Link>
+                <Link href="/">Learn More</Link>
               </Button>
             </div>
           </div>
@@ -176,25 +177,25 @@ export function LandingPageComponent() {
             <div>
               <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
               <ul className="space-y-2">
-                <li><Link href="/about" className="hover:underline">About Us</Link></li>
-                <li><Link href="/mission" className="hover:underline">Mission & Vision</Link></li>
-                <li><Link href="/resources" className="hover:underline">Resources</Link></li>
-                <li><Link href="/contact" className="hover:underline">Contact</Link></li>
+                <li><Link href="/" className="hover:underline">About Us</Link></li>
+                <li><Link href="/" className="hover:underline">Mission & Vision</Link></li>
+                <li><Link href="/" className="hover:underline">Resources</Link></li>
+                <li><Link href="/" className="hover:underline">Contact</Link></li>
               </ul>
             </div>
             <div>
               <h3 className="text-xl font-semibold mb-4">Legal</h3>
               <ul className="space-y-2">
-                <li><Link href="/terms" className="hover:underline">Terms of Service</Link></li>
-                <li><Link href="/privacy" className="hover:underline">Privacy Policy</Link></li>
+                <li><Link href="/" className="hover:underline">Terms of Service</Link></li>
+                <li><Link href="/" className="hover:underline">Privacy Policy</Link></li>
               </ul>
             </div>
             <div>
               <h3 className="text-xl font-semibold mb-4">Connect With Us</h3>
               <div className="flex space-x-4">
-                <Link href="#" aria-label="Twitter"><Twitter className="h-6 w-6" /></Link>
-                <Link href="#" aria-label="Facebook"><Facebook className="h-6 w-6" /></Link>
-                <Link href="#" aria-label="YouTube"><Youtube className="h-6 w-6" /></Link>
+                <Link href="/" aria-label="Twitter"><Twitter className="h-6 w-6" /></Link>
+                <Link href="/" aria-label="Facebook"><Facebook className="h-6 w-6" /></Link>
+                <Link href="/" aria-label="YouTube"><Youtube className="h-6 w-6" /></Link>
               </div>
             </div>
           </div>
