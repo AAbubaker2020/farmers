@@ -88,7 +88,7 @@ export function LandingPageComponent() {
           />
           <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
           <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Empowering Local Farmers with Data, Community, and Knowledge</h1>
+            <h1 className="text-3xl sm:text-5xl md:text-5xl lg:text-6xl font-bold mb-4">Empowering Local Farmers with Data, Community, and Knowledge</h1>
             <p className="text-base sm:text-lg md:text-xl mb-8">Join the Local Farmer Community to access vital resources, connect with fellow farmers, and share sustainable practices for a thriving agricultural future.</p>
             <div className="flex justify-center space-x-4">
               <Button asChild size="lg" className="bg-green-600 hover:bg-green-700 text-white">
