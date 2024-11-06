@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from "@/components/ui/button";
@@ -10,6 +10,20 @@ import { Facebook, Twitter, Youtube, Menu } from 'lucide-react';
 
 export function LandingPageComponent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    // Keep menu open by default on larger screens and adjust on resize
+    const updateMenuVisibility = () => {
+      if (window.innerWidth >= 768) {
+        setIsMenuOpen(true);
+      } else {
+        setIsMenuOpen(false);
+      }
+    };
+    updateMenuVisibility();
+    window.addEventListener("resize", updateMenuVisibility);
+    return () => window.removeEventListener("resize", updateMenuVisibility);
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -25,9 +39,9 @@ export function LandingPageComponent() {
             <span className="text-lg md:text-xl font-semibold text-green-800">Local Farmer Community 2024</span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:block">
-            <ul className="flex space-x-4 md:space-x-6">
+          {/* Mobile and Desktop Navigation */}
+          <nav className={`${isMenuOpen ? 'block' : 'hidden'} md:block`}>
+            <ul className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 items-center">
               <li><Link href="/" className="text-green-800 hover:text-green-600">Home</Link></li>
               <li><Link href="/" className="text-green-800 hover:text-green-600">About</Link></li>
               <li><Link href="/" className="text-green-800 hover:text-green-600">Mission & Vision</Link></li>
@@ -45,23 +59,6 @@ export function LandingPageComponent() {
             <Menu className="h-6 w-6" />
           </button>
         </div>
-
-        {/* Mobile Dropdown Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden bg-white shadow-lg">
-            <ul className="flex flex-col items-start px-4 py-4 space-y-4">
-              <li><Link href="/" className="text-green-800 hover:text-green-600" onClick={toggleMenu}>Home</Link></li>
-              <li><Link href="/" className="text-green-800 hover:text-green-600" onClick={toggleMenu}>About</Link></li>
-              <li><Link href="/" className="text-green-800 hover:text-green-600" onClick={toggleMenu}>Mission & Vision</Link></li>
-              <li><Link href="/" className="text-green-800 hover:text-green-600" onClick={toggleMenu}>Resources</Link></li>
-              <li>
-                <Button asChild variant="default" className="bg-green-600 hover:bg-green-700 text-white w-full text-center">
-                  <Link href="/" onClick={toggleMenu}>Sign Up</Link>
-                </Button>
-              </li>
-            </ul>
-          </div>
-        )}
       </header>
 
       {/* Main Content */}
@@ -96,18 +93,9 @@ export function LandingPageComponent() {
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-green-800">Key Benefits</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
               {[
-                {
-                  title: "Access Data & Market Trends",
-                  description: "Stay informed with up-to-date data on crop prices, weather conditions, and market insights."
-                },
-                {
-                  title: "Connect & Collaborate",
-                  description: "Build connections with farmers across the USA, sharing knowledge, experiences, and solutions."
-                },
-                {
-                  title: "Learn & Grow",
-                  description: "Discover best practices and resources tailored to your region and crops."
-                }
+                { title: "Access Data & Market Trends", description: "Stay informed with up-to-date data on crop prices, weather conditions, and market insights." },
+                { title: "Connect & Collaborate", description: "Build connections with farmers across the USA, sharing knowledge, experiences, and solutions." },
+                { title: "Learn & Grow", description: "Discover best practices and resources tailored to your region and crops." }
               ].map((benefit, index) => (
                 <Card key={index} className="bg-white">
                   <CardContent className="p-4 md:p-6">
@@ -127,18 +115,9 @@ export function LandingPageComponent() {
             <Carousel className="max-w-4xl mx-auto">
               <CarouselContent>
                 {[
-                  {
-                    quote: "This platform has revolutionized how I manage my farm. The data insights are invaluable!",
-                    author: "John Doe, Corn Farmer"
-                  },
-                  {
-                    quote: "Connecting with other farmers has helped me implement sustainable practices I never knew about.",
-                    author: "Jane Smith, Organic Vegetable Grower"
-                  },
-                  {
-                    quote: "The resources available have helped me increase my crop yield by 20% this year.",
-                    author: "Mike Johnson, Wheat Farmer"
-                  }
+                  { quote: "This platform has revolutionized how I manage my farm. The data insights are invaluable!", author: "John Doe, Corn Farmer" },
+                  { quote: "Connecting with other farmers has helped me implement sustainable practices I never knew about.", author: "Jane Smith, Organic Vegetable Grower" },
+                  { quote: "The resources available have helped me increase my crop yield by 20% this year.", author: "Mike Johnson, Wheat Farmer" }
                 ].map((testimonial, index) => (
                   <CarouselItem key={index}>
                     <Card>
