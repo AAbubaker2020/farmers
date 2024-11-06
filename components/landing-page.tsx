@@ -78,7 +78,7 @@ export function LandingPageComponent() {
       {/* Main Content */}
       <main className="flex-grow mt-16">
         {/* Hero Section */}
-        <section className="relative h-[400px] md:h-[600px] flex items-center justify-center text-center text-white">
+        <section className="relative h-[400px] md:h-[600px] flex items-center justify-center text-center text-white overflow-hidden">
           <Image
             src="/trucks_hero_page.jpeg?height=600&width=1600"
             alt="Farmers working in a field"
@@ -87,19 +87,24 @@ export function LandingPageComponent() {
             className="absolute inset-0 z-0"
           />
           <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
-          <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-3xl sm:text-5xl md:text-5xl lg:text-6xl font-bold mb-4">Empowering Local Farmers with Data, Community, and Knowledge</h1>
-            <p className="text-base sm:text-lg md:text-xl mb-8">Join the Local Farmer Community to access vital resources, connect with fellow farmers, and share sustainable practices for a thriving agricultural future.</p>
-            <div className="flex justify-center space-x-4">
-              <Button asChild size="lg" className="bg-green-600 hover:bg-green-700 text-white">
+          <div className="relative z-20 max-w-4xl mx-auto px-6 sm:px-8 lg:px-10">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+              Empowering Local Farmers with Data, Community, and Knowledge
+            </h1>
+            <p className="text-sm sm:text-lg md:text-xl mb-8 px-2 sm:px-0">
+              Join the Local Farmer Community to access vital resources, connect with fellow farmers, and share sustainable practices for a thriving agricultural future.
+            </p>
+            <div className="flex flex-col sm:flex-row sm:space-x-4 justify-center items-center space-y-4 sm:space-y-0">
+              <Button asChild size="lg" className="bg-green-600 hover:bg-green-700 text-white px-6 py-3">
                 <Link href="/">Join the Community</Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="bg-white text-green-800 hover:bg-green-100">
+              <Button asChild size="lg" variant="outline" className="bg-white text-green-800 hover:bg-green-100 px-6 py-3">
                 <Link href="/">Explore Resources</Link>
               </Button>
             </div>
           </div>
         </section>
+
 
         {/* Key Benefits Section */}
         <section className="py-8 md:py-16 bg-stone-100">
