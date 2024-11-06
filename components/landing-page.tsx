@@ -6,17 +6,14 @@ import Link from 'next/link';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { Facebook, Twitter, Youtube, Menu } from 'lucide-react';
+import { Facebook, Twitter, Youtube, Menu, X } from 'lucide-react';
 
 export function LandingPageComponent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    // Keep menu open by default on larger screens and adjust on resize
     const updateMenuVisibility = () => {
       if (window.innerWidth >= 768) {
-        setIsMenuOpen(true);
-      } else {
         setIsMenuOpen(false);
       }
     };
@@ -39,9 +36,9 @@ export function LandingPageComponent() {
             <span className="text-lg md:text-xl font-semibold text-green-800">Local Farmer Community 2024</span>
           </Link>
 
-          {/* Mobile and Desktop Navigation */}
-          <nav className={`${isMenuOpen ? 'block' : 'hidden'} md:block`}>
-            <ul className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 items-center">
+          {/* Desktop and Mobile Navigation */}
+          <nav className="hidden md:block">
+            <ul className="flex space-x-4 md:space-x-6">
               <li><Link href="/" className="text-green-800 hover:text-green-600">Home</Link></li>
               <li><Link href="/" className="text-green-800 hover:text-green-600">About</Link></li>
               <li><Link href="/" className="text-green-800 hover:text-green-600">Mission & Vision</Link></li>
@@ -56,9 +53,26 @@ export function LandingPageComponent() {
 
           {/* Mobile Menu Button */}
           <button className="md:hidden text-green-800" onClick={toggleMenu} aria-label="Toggle menu">
-            <Menu className="h-6 w-6" />
+            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
+
+        {/* Slide-out Mobile Menu */}
+        {isMenuOpen && (
+          <div className="fixed inset-y-0 right-0 w-64 bg-white shadow-lg z-50 transform transition-transform duration-300 ease-in-out md:hidden">
+            <ul className="flex flex-col items-start p-6 space-y-4">
+              <li><Link href="/" className="text-green-800 hover:text-green-600 w-full" onClick={toggleMenu}>Home</Link></li>
+              <li><Link href="/" className="text-green-800 hover:text-green-600 w-full" onClick={toggleMenu}>About</Link></li>
+              <li><Link href="/" className="text-green-800 hover:text-green-600 w-full" onClick={toggleMenu}>Mission & Vision</Link></li>
+              <li><Link href="/" className="text-green-800 hover:text-green-600 w-full" onClick={toggleMenu}>Resources</Link></li>
+              <li>
+                <Button asChild variant="default" className="bg-green-600 hover:bg-green-700 text-white w-full text-center">
+                  <Link href="/" onClick={toggleMenu}>Sign Up</Link>
+                </Button>
+              </li>
+            </ul>
+          </div>
+        )}
       </header>
 
       {/* Main Content */}
@@ -92,7 +106,7 @@ export function LandingPageComponent() {
           <div className="container mx-auto px-4">
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-green-800">Key Benefits</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
-              {[
+              {[ 
                 { title: "Access Data & Market Trends", description: "Stay informed with up-to-date data on crop prices, weather conditions, and market insights." },
                 { title: "Connect & Collaborate", description: "Build connections with farmers across the USA, sharing knowledge, experiences, and solutions." },
                 { title: "Learn & Grow", description: "Discover best practices and resources tailored to your region and crops." }
@@ -108,7 +122,7 @@ export function LandingPageComponent() {
           </div>
         </section>
 
-        {/* Community Testimonials */}
+        {/* Community Testimonials Section */}
         <section className="py-8 md:py-16">
           <div className="container mx-auto px-4">
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-green-800">Community Testimonials</h2>
@@ -135,12 +149,12 @@ export function LandingPageComponent() {
           </div>
         </section>
 
-        {/* Feature Highlights */}
+        {/* Feature Highlights Section */}
         <section className="py-8 md:py-16 bg-stone-100">
           <div className="container mx-auto px-4">
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-green-800">Feature Highlights</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
-              {[
+              {[ 
                 { title: "Forums", description: "Engage in discussions with fellow farmers" },
                 { title: "Data Dashboards", description: "Access real-time agricultural data and insights" },
                 { title: "Learning Resources", description: "Expand your knowledge with curated educational content" }
@@ -156,7 +170,7 @@ export function LandingPageComponent() {
           </div>
         </section>
 
-        {/* Mobile Access Feature */}
+        {/* Access Anytime, Anywhere Section */}
         <section className="py-8 md:py-16">
           <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
             <div className="w-full md:w-1/2 mb-8 md:mb-0 flex justify-center md:justify-start">
